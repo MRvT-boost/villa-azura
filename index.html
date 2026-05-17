@@ -28,7 +28,7 @@
     .nav-cta:hover { background: #a85843 !important; }
 
     /* HERO */
-    .hero { height: 100vh; min-height: 600px; background: linear-gradient(to bottom, rgba(26,32,53,.45) 0%, rgba(26,32,53,.2) 60%, rgba(26,32,53,.7) 100%), url('villa-azura-aerial.jpg') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; padding: 0 1rem 5rem; color: var(--white); }
+    .hero { height: 100vh; min-height: 600px; background: linear-gradient(to bottom, rgba(26,32,53,.45) 0%, rgba(26,32,53,.2) 60%, rgba(26,32,53,.7) 100%), url('images/house/villa-azura-aerial.jpg') center/cover no-repeat; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; text-align: center; padding: 0 1rem 5rem; color: var(--white); }
     .hero-tag { font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(255,255,255,.2); padding: .35rem 1rem; border-radius: 100px; margin-bottom: 1.2rem; }
     .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem,6vw,4.5rem); line-height: 1.1; margin-bottom: .8rem; }
     .hero p { font-size: 1.1rem; opacity: .9; max-width: 520px; margin: 0 auto 2rem; font-weight: 300; }
@@ -45,7 +45,7 @@
     .container { max-width: 1100px; margin: 0 auto; }
     .section-label { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--terracotta); font-weight: 600; margin-bottom: .6rem; }
     .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem,4vw,2.6rem); margin-bottom: 1.2rem; }
-    .section-subtitle { color: var(--mid); max-width: 620px; line-height: 1.7; }
+    .section-subtitle { color: var(--mid); max-width: 680px; line-height: 1.7; }
 
     /* QUICK FACTS */
     .quick-facts { background: var(--dark); color: var(--white); padding: 2.5rem 1.5rem; }
@@ -54,32 +54,34 @@
     .fact-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 600; }
     .fact-lbl { font-size: .82rem; opacity: .7; margin-top: .2rem; }
 
-    /* GALLERY LIGHTBOX */
-    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 240px 240px; gap: 8px; border-radius: var(--radius); overflow: hidden; margin-top: 2rem; }
-    .gallery-grid .g-item { overflow: hidden; cursor: pointer; position: relative; }
-    .gallery-grid .g-item.big { grid-column: 1 / 3; grid-row: 1 / 3; }
-    .gallery-grid .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
-    .gallery-grid .g-item:hover img { transform: scale(1.05); }
-    .g-item-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: .3s; display: flex; align-items: center; justify-content: center; }
-    .g-item-overlay span { color: white; font-size: 2rem; opacity: 0; transition: .3s; }
-    .g-item:hover .g-item-overlay { background: rgba(0,0,0,.25); }
-    .g-item:hover .g-item-overlay span { opacity: 1; }
-    .g-more { grid-column: 4; grid-row: 2; background: var(--dark); display: flex; align-items: center; justify-content: center; color: white; font-size: .9rem; font-weight: 600; cursor: pointer; text-align: center; padding: 1rem; }
-    .g-more:hover { background: #2a3555; }
+    /* GALLERY */
+    .gallery-filters { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1.8rem 0 1.2rem; }
+    .gf-btn { padding: .5rem 1.1rem; border-radius: 100px; border: 2px solid #e0ddd6; font-size: .85rem; font-weight: 500; cursor: pointer; background: white; color: var(--mid); transition: .2s; font-family: inherit; }
+    .gf-btn.active { background: var(--dark); border-color: var(--dark); color: white; }
+    .gf-btn:hover:not(.active) { border-color: var(--dark); color: var(--dark); }
+    .photo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .photo-item { aspect-ratio: 4/3; overflow: hidden; cursor: pointer; border-radius: 6px; position: relative; }
+    .photo-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s; display: block; }
+    .photo-item:hover img { transform: scale(1.06); }
+    .photo-item.hidden { display: none; }
+    .photo-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0); transition: .3s; display: flex; align-items: flex-end; padding: .7rem; }
+    .photo-overlay span { color: white; font-size: .78rem; opacity: 0; transition: .3s; background: rgba(0,0,0,.5); padding: .2rem .6rem; border-radius: 4px; }
+    .photo-item:hover .photo-overlay { background: rgba(0,0,0,.2); }
+    .photo-item:hover .photo-overlay span { opacity: 1; }
+    .gallery-count { margin-top: 1rem; font-size: .85rem; color: var(--mid); text-align: right; }
 
-    /* LIGHTBOX MODAL */
-    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.92); z-index: 1000; align-items: center; justify-content: center; }
+    /* LIGHTBOX */
+    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.94); z-index: 1000; align-items: center; justify-content: center; }
     .lightbox.active { display: flex; }
-    .lb-inner { position: relative; max-width: 90vw; max-height: 90vh; }
-    .lb-inner img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 8px; display: block; }
-    .lb-close { position: fixed; top: 1.5rem; right: 1.5rem; background: rgba(255,255,255,.15); border: none; color: white; font-size: 1.8rem; width: 44px; height: 44px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .2s; }
+    .lb-inner { position: relative; max-width: 90vw; max-height: 90vh; text-align: center; }
+    .lb-inner img { max-width: 90vw; max-height: 82vh; object-fit: contain; border-radius: 6px; display: block; }
+    .lb-close { position: fixed; top: 1.2rem; right: 1.5rem; background: rgba(255,255,255,.15); border: none; color: white; font-size: 1.6rem; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .2s; }
     .lb-close:hover { background: rgba(255,255,255,.3); }
-    .lb-prev, .lb-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.15); border: none; color: white; font-size: 1.5rem; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .2s; }
-    .lb-prev { left: 1rem; }
-    .lb-next { right: 1rem; }
+    .lb-prev, .lb-next { position: fixed; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,.15); border: none; color: white; font-size: 1.6rem; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: .2s; }
+    .lb-prev { left: 1rem; } .lb-next { right: 1rem; }
     .lb-prev:hover, .lb-next:hover { background: rgba(255,255,255,.3); }
-    .lb-caption { color: rgba(255,255,255,.7); text-align: center; margin-top: .8rem; font-size: .9rem; }
-    .lb-counter { position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.6); font-size: .85rem; }
+    .lb-caption { color: rgba(255,255,255,.75); margin-top: .7rem; font-size: .9rem; }
+    .lb-counter { position: fixed; top: 1.3rem; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,.6); font-size: .85rem; background: rgba(0,0,0,.4); padding: .3rem .8rem; border-radius: 100px; }
 
     /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
@@ -125,25 +127,21 @@
     .map-embed iframe { width: 100%; height: 320px; border: none; display: block; }
 
     /* THINGS TO DO */
-    .todo-bg { background: var(--white); }
     .todo-tabs { display: flex; gap: .5rem; flex-wrap: wrap; margin: 2rem 0 2.5rem; }
-    .todo-tab { padding: .55rem 1.2rem; border-radius: 100px; border: 2px solid #e0ddd6; font-size: .88rem; font-weight: 500; cursor: pointer; background: white; color: var(--mid); transition: .2s; }
+    .todo-tab { padding: .55rem 1.2rem; border-radius: 100px; border: 2px solid #e0ddd6; font-size: .88rem; font-weight: 500; cursor: pointer; background: white; color: var(--mid); transition: .2s; font-family: inherit; }
     .todo-tab.active { background: var(--terracotta); border-color: var(--terracotta); color: white; }
     .todo-tab:hover:not(.active) { border-color: var(--terracotta); color: var(--terracotta); }
     .todo-panel { display: none; }
     .todo-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; }
     .todo-card { border-radius: var(--radius); border: 1px solid #eee; overflow: hidden; transition: box-shadow .2s; }
     .todo-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.1); }
-    .todo-card-header { background: var(--sand); padding: 1.2rem 1.5rem; }
+    .todo-card-img { width: 100%; height: 170px; object-fit: cover; display: block; }
+    .todo-card-header { background: var(--sand); padding: 1rem 1.4rem; }
     .todo-card-header h3 { font-size: 1rem; font-weight: 600; margin-bottom: .2rem; }
     .todo-card-tag { font-size: .75rem; color: var(--terracotta); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; }
-    .todo-card-body { padding: 1.2rem 1.5rem; }
+    .todo-card-body { padding: 1rem 1.4rem 1.4rem; }
     .todo-card-body p { font-size: .9rem; color: var(--mid); line-height: 1.6; }
-    .todo-card-body .todo-dist { font-size: .82rem; color: var(--blue); font-weight: 600; margin-top: .6rem; }
-
-    /* RESTAURANT CARDS */
-    .resto-panel { display: none; }
-    .resto-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; }
+    .todo-dist { font-size: .82rem; color: var(--blue); font-weight: 600; margin-top: .6rem; }
     .resto-card { border-radius: var(--radius); border: 1px solid #eee; padding: 1.4rem; transition: box-shadow .2s; }
     .resto-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.1); }
     .resto-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: .3rem; }
@@ -182,17 +180,16 @@
 
     /* FOOTER */
     footer { background: #0f1525; color: rgba(255,255,255,.6); text-align: center; padding: 2rem 1.5rem; font-size: .85rem; }
+    .footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; margin-bottom: .5rem; }
     footer a { color: rgba(255,255,255,.5); text-decoration: none; }
     footer a:hover { color: var(--white); }
-    .footer-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; margin-bottom: .5rem; }
 
     /* RESPONSIVE */
     @media(max-width: 768px) {
       nav { padding: .8rem 1rem; }
       .nav-links { display: none; }
       .about-grid, .contact-grid, .location-grid { grid-template-columns: 1fr; }
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; }
-      .gallery-grid .g-item.big { grid-column: 1 / 3; grid-row: auto; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); }
       .form-row { grid-template-columns: 1fr; }
       .hero p, .btn-outline { display: none; }
     }
@@ -250,41 +247,47 @@
   <div class="container">
     <div class="section-label">Gallery</div>
     <h2 class="section-title">See Villa Azura for Yourself</h2>
-    <p class="section-subtitle">Click any photo to view full-screen. More photos available on request.</p>
+    <p class="section-subtitle">All 24 photos of the villa — click any image to view full-screen and browse with the arrow keys.</p>
 
-    <div class="gallery-grid">
-      <div class="g-item big" onclick="openLightbox(0)">
-        <img src="villa-azura-aerial.jpg" alt="Villa Azura aerial view" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-item" onclick="openLightbox(1)">
-        <img src="villa-azura-pool-terrace.jpg" alt="Pool and terrace" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-item" onclick="openLightbox(2)">
-        <img src="https://images.micazu.nl/_images/house/47648/images/villa_azura__zwembad___dichtbij_zee-5-2433.jpg?width=600&height=400&mode=crop&scale=both" alt="Pool with palm trees" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-item" onclick="openLightbox(3)">
-        <img src="https://images.micazu.nl/_images/house/47648/images/Villa_met_zwembad_nabij_zee___Golf-8ced4785.jpg?crop=0,0,1747,1310&srotate=0&width=600&height=400&mode=crop&scale=both" alt="Covered terrace with outdoor bar" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-item" onclick="openLightbox(4)">
-        <img src="https://images.micazu.nl/_images/house/47648/images/villa_azura-20-1306.jpg?width=600&height=400&mode=crop&scale=both" alt="Living area" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-item" onclick="openLightbox(5)">
-        <img src="https://images.micazu.nl/_images/house/47648/images/Villa_met_zwembad_nabij_zee___Golf-0f1e4b0d.jpg?crop=0,0,1509,1132&srotate=0&width=600&height=400&mode=crop&scale=both" alt="Villa exterior front" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-item" onclick="openLightbox(6)">
-        <img src="https://images.micazu.nl/_images/house/47648/images/villa_azura-1-1306.jpeg?width=600&height=400&mode=crop&scale=both" alt="Garden and pool" />
-        <div class="g-item-overlay"><span>🔍</span></div>
-      </div>
-      <div class="g-more" onclick="openLightbox(0)">
-        📷<br>View all photos
-      </div>
+    <div class="gallery-filters">
+      <button class="gf-btn active" onclick="filterGallery('all',this)">All (24)</button>
+      <button class="gf-btn" onclick="filterGallery('pool',this)">🏊 Pool & Garden</button>
+      <button class="gf-btn" onclick="filterGallery('terrace',this)">🌿 Terrace & Dining</button>
+      <button class="gf-btn" onclick="filterGallery('sunset',this)">🌅 Sunsets</button>
+      <button class="gf-btn" onclick="filterGallery('interior',this)">🛏️ Bedrooms & Interior</button>
     </div>
+
+    <div class="photo-grid" id="photoGrid">
+      <!-- Pool & Garden -->
+      <div class="photo-item" data-cat="pool" data-idx="0" onclick="openLightbox(0)"><img src="images/house/villa-azura-aerial.jpg" alt="Aerial view" loading="lazy"/><div class="photo-overlay"><span>Aerial view</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="1" onclick="openLightbox(1)"><img src="images/house/overview.jpg" alt="Villa overview" loading="lazy"/><div class="photo-overlay"><span>Villa overview</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="2" onclick="openLightbox(2)"><img src="images/house/va-pool-view.jpg" alt="Pool view" loading="lazy"/><div class="photo-overlay"><span>Pool view</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="3" onclick="openLightbox(3)"><img src="images/house/relax-pool.jpg" alt="Relaxing by the pool" loading="lazy"/><div class="photo-overlay"><span>Relaxing by the pool</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="4" onclick="openLightbox(4)"><img src="images/house/pool-by-night-Villa-Azura.jpg" alt="Pool by night" loading="lazy"/><div class="photo-overlay"><span>Pool by night</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="5" onclick="openLightbox(5)"><img src="images/house/twighlight.jpg" alt="Villa at twilight" loading="lazy"/><div class="photo-overlay"><span>Villa at twilight</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="6" onclick="openLightbox(6)"><img src="images/house/day.jpg" alt="A perfect day" loading="lazy"/><div class="photo-overlay"><span>A perfect day</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="7" onclick="openLightbox(7)"><img src="images/house/va-front-view.jpg" alt="Front view" loading="lazy"/><div class="photo-overlay"><span>Front view</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="8" onclick="openLightbox(8)"><img src="images/house/va-entrance.jpg" alt="Villa entrance" loading="lazy"/><div class="photo-overlay"><span>Villa entrance</span></div></div>
+      <div class="photo-item" data-cat="pool" data-idx="9" onclick="openLightbox(9)"><img src="images/house/Carrer-Morena_22_039.jpg" alt="The street" loading="lazy"/><div class="photo-overlay"><span>Carrer la Morena</span></div></div>
+      <!-- Terrace & Dining -->
+      <div class="photo-item" data-cat="terrace" data-idx="10" onclick="openLightbox(10)"><img src="images/house/va-naya.jpg" alt="The naya" loading="lazy"/><div class="photo-overlay"><span>The naya</span></div></div>
+      <div class="photo-item" data-cat="terrace" data-idx="11" onclick="openLightbox(11)"><img src="images/house/naya-bbq-area.jpg" alt="BBQ area" loading="lazy"/><div class="photo-overlay"><span>Naya & BBQ</span></div></div>
+      <div class="photo-item" data-cat="terrace" data-idx="12" onclick="openLightbox(12)"><img src="images/house/luncht-at-naya.jpg" alt="Lunch at the naya" loading="lazy"/><div class="photo-overlay"><span>Lunch at the naya</span></div></div>
+      <div class="photo-item" data-cat="terrace" data-idx="13" onclick="openLightbox(13)"><img src="images/house/shady-terras.jpg" alt="Shaded terrace" loading="lazy"/><div class="photo-overlay"><span>Shaded terrace</span></div></div>
+      <div class="photo-item" data-cat="terrace" data-idx="14" onclick="openLightbox(14)"><img src="images/house/opennaya-sunrise.jpg" alt="Naya at sunrise" loading="lazy"/><div class="photo-overlay"><span>Naya at sunrise</span></div></div>
+      <div class="photo-item" data-cat="terrace" data-idx="15" onclick="openLightbox(15)"><img src="images/house/dining-with-a-view.jpg" alt="Dining with a view" loading="lazy"/><div class="photo-overlay"><span>Dining with a view</span></div></div>
+      <!-- Sunsets -->
+      <div class="photo-item" data-cat="sunset" data-idx="16" onclick="openLightbox(16)"><img src="images/house/Villa-azura-sunset.jpeg" alt="Sunset at Villa Azura" loading="lazy"/><div class="photo-overlay"><span>Sunset at Villa Azura</span></div></div>
+      <div class="photo-item" data-cat="sunset" data-idx="17" onclick="openLightbox(17)"><img src="images/house/another-beautiful-sunset-at-Villa-Azura-Moraira.jpg" alt="Another beautiful sunset" loading="lazy"/><div class="photo-overlay"><span>Another beautiful sunset</span></div></div>
+      <div class="photo-item" data-cat="sunset" data-idx="18" onclick="openLightbox(18)"><img src="images/house/sundowner.JPEG" alt="Sundowner" loading="lazy"/><div class="photo-overlay"><span>Sundowner</span></div></div>
+      <div class="photo-item" data-cat="sunset" data-idx="19" onclick="openLightbox(19)"><img src="images/house/sunset.jpg" alt="Sunset" loading="lazy"/><div class="photo-overlay"><span>Sunset from the garden</span></div></div>
+      <!-- Interior & Bedrooms -->
+      <div class="photo-item" data-cat="interior" data-idx="20" onclick="openLightbox(20)"><img src="images/house/living-diningroom.jpeg" alt="Living & dining room" loading="lazy"/><div class="photo-overlay"><span>Living & dining room</span></div></div>
+      <div class="photo-item" data-cat="interior" data-idx="21" onclick="openLightbox(21)"><img src="images/house/Poolroom.jpg" alt="Pool room — double bedroom" loading="lazy"/><div class="photo-overlay"><span>Double bedroom</span></div></div>
+      <div class="photo-item" data-cat="interior" data-idx="22" onclick="openLightbox(22)"><img src="images/house/Master-bedroom-doors-to-pool.jpg" alt="Master bedroom" loading="lazy"/><div class="photo-overlay"><span>Master bedroom</span></div></div>
+      <div class="photo-item" data-cat="interior" data-idx="23" onclick="openLightbox(23)"><img src="images/house/Third-bedroom-two-single-beds.jpg" alt="Twin bedroom" loading="lazy"/><div class="photo-overlay"><span>Twin bedroom</span></div></div>
+    </div>
+    <div class="gallery-count" id="galleryCount">Showing 24 of 24 photos</div>
   </div>
 </section>
 
@@ -310,13 +313,13 @@
         <p>Villa Azura is a charming, tastefully decorated holiday villa tucked away in the peaceful residential area of Los Almendros, just outside Benissa. The property offers the perfect balance of seclusion and convenience.</p>
         <p>The spacious outdoor area features a large, deep private pool reached by a gentle Roman-style staircase, surrounded by palm trees and private terraces — ideal for sunbathing in the morning or relaxing under the stars at night with atmospheric garden lighting.</p>
         <p>Indoors, a bright open-plan kitchen (fully renovated in 2025) connects to a welcoming living room and a generous covered terrace with an outdoor bar and BBQ. Air-conditioning throughout, free high-speed fibre WiFi, Netflix and Dutch-language satellite TV make it comfortable for any season.</p>
-        <p>The villa is fully fenced with a gated entrance and a security camera. A pool fence around the steps ensures young children stay safe. Two bedrooms have direct access to the pool area.</p>
+        <p>The villa is fully fenced with a gated entrance and a security camera. A pool fence ensures young children stay safe. Two bedrooms have direct access to the pool area.</p>
         <div class="highlight-box">
           <p>🌞 South-facing and positioned on a gentle hill, Villa Azura catches the sun all year — even in winter — and benefits from a refreshing coastal breeze in summer. Perfect for both summer holidays and longer winter stays.</p>
         </div>
       </div>
       <div class="about-img">
-        <img src="villa-azura-pool-terrace.jpg" alt="Villa Azura pool and terrace" />
+        <img src="images/house/overview.jpg" alt="Villa Azura overview" />
       </div>
     </div>
   </div>
@@ -337,7 +340,7 @@
       <div class="feature-card"><div class="feature-icon">🛏️</div><h3>3 Comfortable Bedrooms</h3><p>Bedroom 1: double 160×200 cm. Bedroom 2: double 150×200 cm (en-suite with bath). Bedroom 3: two singles 90×200 cm. All with built-in wardrobes.</p></div>
       <div class="feature-card"><div class="feature-icon">🔐</div><h3>Privacy & Security</h3><p>Fully fenced property with a gated entrance and security camera. Completely detached — no shared walls with neighbours.</p></div>
       <div class="feature-card"><div class="feature-icon">🏖️</div><h3>Beach Kit & Extras</h3><p>Cool box, beach umbrella, books, board games, DVDs, a paella pan for the BBQ and a warm water bottle for winter evenings.</p></div>
-      <div class="feature-card"><div class="feature-icon">🅿️</div><h3>Private Driveway</h3><p>Private driveway with ample parking space. Pool and living areas are all on one level.</p></div>
+      <div class="feature-card"><div class="feature-icon">🅿️</div><h3>Private Driveway</h3><p>Private driveway with ample parking space. Pool and living areas all on one level.</p></div>
     </div>
   </div>
 </section>
@@ -364,7 +367,7 @@
         <div class="extra-item"><span>🔒 Security deposit</span><span>€350</span></div>
       </div>
     </div>
-    <div class="price-note"><strong>Cancellation:</strong> Free up to 4 weeks before arrival. &nbsp;|&nbsp; <strong>Min. age:</strong> 21+. &nbsp;|&nbsp; <strong>Rules:</strong> No smoking, no pets, no parties. &nbsp;|&nbsp; <strong>Check-in:</strong> 15:00 &nbsp;|&nbsp; <strong>Check-out:</strong> 10:00. &nbsp;|&nbsp; Licence: CV-VUT0454213-A</div>
+    <div class="price-note"><strong>Cancellation:</strong> Free up to 4 weeks before arrival. &nbsp;|&nbsp; <strong>Min. age:</strong> 21+. &nbsp;|&nbsp; <strong>Rules:</strong> No smoking, no pets, no parties. &nbsp;|&nbsp; <strong>Check-in:</strong> 15:00 &nbsp;|&nbsp; <strong>Check-out:</strong> 10:00 &nbsp;|&nbsp; Licence: CV-VUT0454213-A</div>
   </div>
 </section>
 
@@ -383,9 +386,9 @@
         <li><span class="dist-icon">✈️</span><span class="dist-label">Alicante Airport</span><span class="dist-val">~70 km</span></li>
         <li><span class="dist-icon">✈️</span><span class="dist-label">Valencia Airport</span><span class="dist-val">~100 km</span></li>
       </ul>
-      <div class="location-desc">
-        <p>Villa Azura is situated in the Los Almendros residential area of Benissa Costa — a tranquil neighbourhood on a gentle hillside. The surrounding Marina Alta region is regarded as one of the healthiest climates in the world, with more than 300 days of sunshine a year.</p>
-        <p>A landscape of sandy beaches, hidden coves, medieval villages, vineyards, nature reserves and rugged coastal paths awaits. Ask us for our personal restaurant tips!</p>
+      <div>
+        <p style="color:var(--mid);line-height:1.8;margin-bottom:1rem;">Villa Azura is situated in the Los Almendros residential area of Benissa Costa — a tranquil neighbourhood on a gentle hillside. The surrounding Marina Alta region is regarded as one of the healthiest climates in the world, with more than 300 days of sunshine a year.</p>
+        <p style="color:var(--mid);line-height:1.8;margin-bottom:1rem;">A landscape of sandy beaches, hidden coves, medieval villages, vineyards, nature reserves and rugged coastal paths awaits. Ask us for our personal restaurant tips!</p>
         <div class="map-embed">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5679855.567583046!2d0.2979597000000177!3d45.96392939674288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x129e071784a59f5d%3A0x88fe9ed7eafb992e!2sCarrer%20la%20Morena%2C%2011%2C%2003720%20Benissa%2C%20Alicante%2C%20Spanje!5e0!3m2!1snl!2snl!4v1778941227304!5m2!1snl!2snl" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Villa Azura location map"></iframe>
         </div>
@@ -399,69 +402,135 @@
   <div class="container">
     <div class="section-label">Explore the Area</div>
     <h2 class="section-title">Things To Do Around Moraira & Benissa</h2>
-    <p class="section-subtitle">The Costa Blanca has something for everyone — from hidden coves and cliff walks to golf, markets and outstanding restaurants.</p>
+    <p class="section-subtitle">The Costa Blanca has something for everyone — hidden coves, cliff walks, golf, markets and outstanding restaurants just minutes away.</p>
 
     <div class="todo-tabs">
-      <button class="todo-tab active" onclick="showTab('beaches')">🏖️ Beaches</button>
-      <button class="todo-tab" onclick="showTab('outdoor')">🥾 Outdoor</button>
-      <button class="todo-tab" onclick="showTab('golf')">⛳ Golf</button>
-      <button class="todo-tab" onclick="showTab('markets')">🛒 Markets</button>
-      <button class="todo-tab" onclick="showTab('daytrips')">🗺️ Day Trips</button>
-      <button class="todo-tab" onclick="showTab('restaurants')">🍽️ Restaurants</button>
+      <button class="todo-tab active" onclick="showTab('beaches',this)">🏖️ Beaches</button>
+      <button class="todo-tab" onclick="showTab('outdoor',this)">🥾 Outdoor</button>
+      <button class="todo-tab" onclick="showTab('golf',this)">⛳ Golf</button>
+      <button class="todo-tab" onclick="showTab('markets',this)">🛒 Markets</button>
+      <button class="todo-tab" onclick="showTab('daytrips',this)">🗺️ Day Trips</button>
+      <button class="todo-tab" onclick="showTab('restaurants',this)">🍽️ Restaurants</button>
     </div>
 
     <!-- BEACHES -->
     <div class="todo-panel active" id="tab-beaches">
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Walking distance</div><h3>Cala Baladrar</h3></div><div class="todo-card-body"><p>A tranquil pebbly bay with calm, crystal-clear water and a beach bar. Perfect for a morning swim before breakfast — the walk from the villa takes about 20 minutes along quiet streets.</p><div class="todo-dist">📍 1,500 m from Villa Azura</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Blue Flag</div><h3>Moraira Beach & El Portet</h3></div><div class="todo-card-body"><p>Moraira has two sandy Blue Flag beaches. The main town beach is lively with facilities; El Portet is smaller, more sheltered and beloved for its crystal clear water — great for children too.</p><div class="todo-dist">📍 5 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Snorkelling spot</div><h3>Cala l'Andrago</h3></div><div class="todo-card-body"><p>A beautiful rocky cove just down from the villa, popular with snorkellers and divers for its rich marine life and clear turquoise water. Accessible by car with limited parking.</p><div class="todo-dist">📍 ~2 km</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Hidden gem</div><h3>Cala Llebeig & Portitxol</h3></div><div class="todo-card-body"><p>Two secluded coves only accessible by sea or coastal path — a real adventure. Bring a picnic, a snorkel and enjoy the solitude. Portitxol is ideal for diving.</p><div class="todo-dist">📍 Near El Portet, Moraira</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Lively resort</div><h3>Calpe & La Fossa Beach</h3></div><div class="todo-card-body"><p>A long sandy beach in the shadow of the iconic Peñón de Ifach rock. Calpe's old town and harbour are worth exploring. Fresh fish at the market on Tuesday and Friday mornings.</p><div class="todo-dist">📍 ~10 min drive</div></div></div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/Dining-at-Olala-Cala-Baladrar-on-walking-distance-from-Villa-Azura.jpg" alt="Cala Baladrar" />
+        <div class="todo-card-header"><div class="todo-card-tag">Walking distance</div><h3>Cala Baladrar</h3></div>
+        <div class="todo-card-body"><p>A tranquil pebbly bay with calm, crystal-clear water and a beach bar (Chiringuito Olalá). Perfect for a morning swim — the walk from the villa takes about 20 minutes along quiet streets.</p><div class="todo-dist">📍 1,500 m from Villa Azura</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/Playa-de-El-Portet-Moraira.jpg" alt="El Portet Moraira" />
+        <div class="todo-card-header"><div class="todo-card-tag">Blue Flag</div><h3>Moraira Beach & El Portet</h3></div>
+        <div class="todo-card-body"><p>Moraira has two sandy Blue Flag beaches. The main beach is lively with facilities; El Portet is sheltered with crystal-clear water — great for children and a favourite for evening strolls.</p><div class="todo-dist">📍 5 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/view-on-Cala-Advocat.jpg" alt="Cala Advocat" />
+        <div class="todo-card-header"><div class="todo-card-tag">Snorkelling spot</div><h3>Cala l'Andrago & Cala Advocat</h3></div>
+        <div class="todo-card-body"><p>Beautiful rocky coves just down from the villa, popular with snorkellers and divers for rich marine life and turquoise water. Accessible by car with limited parking.</p><div class="todo-dist">📍 ~2 km</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/Playa-de-el-Portet.jpg" alt="El Portet beach" />
+        <div class="todo-card-header"><div class="todo-card-tag">Lively resort</div><h3>Calpe & La Fossa Beach</h3></div>
+        <div class="todo-card-body"><p>A long sandy beach in the shadow of the iconic Peñón de Ifach rock. Calpe's old town and harbour are worth exploring, with a fresh fish market on Tuesday and Friday mornings.</p><div class="todo-dist">📍 ~10 min drive</div></div>
+      </div>
     </div>
 
     <!-- OUTDOOR -->
     <div class="todo-panel" id="tab-outdoor">
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Iconic hike</div><h3>Cap d'Or Watchtower</h3></div><div class="todo-card-body"><p>A 30-minute walk from El Portet beach up to a historic watchtower with one of the most breathtaking panoramas on the entire Costa Blanca — on a clear day you can see as far as Ibiza.</p><div class="todo-dist">📍 El Portet, Moraira</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Cliff walk</div><h3>Paseo Ecológico Benissa</h3></div><div class="todo-card-body"><p>A stunning coastal trail running along the cliffs of Benissa Costa — right near the villa. Dramatic sea views, wild flowers and fresh air. One of the area's most popular evening strolls.</p><div class="todo-dist">📍 Benissa Costa</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Dramatic scenery</div><h3>Peñón de Ifach, Calpe</h3></div><div class="todo-card-body"><p>The iconic 332m sea rock that defines the Costa Blanca skyline. You can hike to the top through a tunnel in the rock for extraordinary views. Allow 2–3 hours return.</p><div class="todo-dist">📍 ~10 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Water sports</div><h3>Kayaking, SUP & Diving</h3></div><div class="todo-card-body"><p>Moraira harbour offers boat rentals, stand-up paddleboarding, snorkelling and PADI diving courses. Dolphin-watching tours and sunset cruises depart from the marina.</p><div class="todo-dist">📍 Moraira harbour</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Cycling</div><h3>Cycling Routes</h3></div><div class="todo-card-body"><p>Explore the coast to Calpe with views of the Ifach rock, or cycle inland toward Benissa and the mountain village of Llíber. Pack a picnic and stop at a mirador (viewpoint).</p><div class="todo-dist">📍 Starting from the villa</div></div></div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/hiking-the-bernia-beautiful-view.png" alt="Hiking with beautiful views" />
+        <div class="todo-card-header"><div class="todo-card-tag">Iconic hike</div><h3>Cap d'Or Watchtower</h3></div>
+        <div class="todo-card-body"><p>A 30-minute walk from El Portet beach up to a historic watchtower with one of the most breathtaking panoramas on the entire Costa Blanca — on a clear day you can see as far as Ibiza.</p><div class="todo-dist">📍 El Portet, Moraira</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/Many-bays-along-coastal-ecological-path-Benissa.jpg" alt="Coastal ecological path" />
+        <div class="todo-card-header"><div class="todo-card-tag">Cliff walk</div><h3>Paseo Ecológico Benissa</h3></div>
+        <div class="todo-card-body"><p>A stunning coastal trail running along the cliffs of Benissa Costa — right near the villa. Dramatic sea views, wild flowers and fresh air. One of the area's most popular walks.</p><div class="todo-dist">📍 Benissa Costa, near villa</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/ecological-path-calpe-to-moraira.png" alt="Coastal path" />
+        <div class="todo-card-header"><div class="todo-card-tag">Dramatic scenery</div><h3>Peñón de Ifach, Calpe</h3></div>
+        <div class="todo-card-body"><p>The iconic 332m sea rock that defines the Costa Blanca skyline. Hike to the top through a tunnel in the rock for extraordinary views. Allow 2–3 hours return.</p><div class="todo-dist">📍 ~10 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/cycling-in-costa-blanca-valleys.png" alt="Cycling in Costa Blanca" />
+        <div class="todo-card-header"><div class="todo-card-tag">Cycling & water sports</div><h3>Cycling & Water Sports</h3></div>
+        <div class="todo-card-body"><p>Cycle to Calpe with views of the Ifach rock or inland toward Llíber. Moraira harbour offers kayak rentals, stand-up paddleboarding, diving courses and dolphin-watching cruises.</p><div class="todo-dist">📍 Moraira harbour & surroundings</div></div>
+      </div>
     </div>
 
     <!-- GOLF -->
     <div class="todo-panel" id="tab-golf">
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">2 km from villa</div><h3>Golf Ifach</h3></div><div class="todo-card-body"><p>A compact but scenic 9-hole course with sea views just minutes from Villa Azura. Popular with all levels, with a good clubhouse restaurant. One of the best-located courses on the Costa Blanca.</p><div class="todo-dist">📍 ~2 km from Villa Azura</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">18 holes</div><h3>Club de Golf Jávea</h3></div><div class="todo-card-body"><p>An 18-hole course set among orange groves and almond trees near Jávea, with a beautiful mountain backdrop and a welcoming clubhouse.</p><div class="todo-dist">📍 ~20 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">18 holes</div><h3>Villaitana Golf</h3></div><div class="todo-card-body"><p>Two 18-hole courses near Benidorm — ideal for a full golfing day trip. The Poniente course is particularly scenic with views towards the Puig Campana mountain.</p><div class="todo-dist">📍 ~30 min drive</div></div></div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/golf-de-Ifach.jpg" alt="Golf de Ifach" />
+        <div class="todo-card-header"><div class="todo-card-tag">2 km from villa</div><h3>Golf Ifach</h3></div>
+        <div class="todo-card-body"><p>A scenic 9-hole course with sea views just minutes from Villa Azura. Popular with all levels, with a good clubhouse restaurant. One of the best-located courses on the Costa Blanca.</p><div class="todo-dist">📍 ~2 km from Villa Azura</div></div>
+      </div>
+      <div class="todo-card">
+        <div class="todo-card-header"><div class="todo-card-tag">18 holes</div><h3>Club de Golf Jávea</h3></div>
+        <div class="todo-card-body"><p>An 18-hole course set among orange groves and almond trees near Jávea, with a beautiful mountain backdrop and welcoming clubhouse.</p><div class="todo-dist">📍 ~20 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <div class="todo-card-header"><div class="todo-card-tag">18 holes</div><h3>Villaitana Golf</h3></div>
+        <div class="todo-card-body"><p>Two 18-hole courses near Benidorm — ideal for a full golfing day trip. The Poniente course is particularly scenic with views towards the Puig Campana mountain.</p><div class="todo-dist">📍 ~30 min drive</div></div>
+      </div>
     </div>
 
     <!-- MARKETS -->
     <div class="todo-panel" id="tab-markets">
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Every Friday</div><h3>Moraira Friday Market</h3></div><div class="todo-card-body"><p>Every Friday morning the centre of Moraira transforms into a colourful local market with fresh produce, olives, cheeses, local wines, leather bags, clothing and handmade ceramics.</p><div class="todo-dist">📍 Moraira centre, 5 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Wine & almonds</div><h3>Jalón/Xaló Valley Market</h3></div><div class="todo-card-body"><p>The Jalón valley is famous for its muscatel wine and almond orchards. Visit the Sunday market and the co-operative winery for local wines at unbeatable prices.</p><div class="todo-dist">📍 ~20 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Artisan</div><h3>Harbour & Castle Markets</h3></div><div class="todo-card-body"><p>Throughout summer, artisan markets take place at Moraira harbour and near the castle — a lovely evening stroll with local crafts, jewellery and street food.</p><div class="todo-dist">📍 Moraira harbour</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">Culture</div><h3>Moros y Cristianos Festival</h3></div><div class="todo-card-body"><p>Held each June/July in Moraira, this spectacular fiesta features colourful parades, traditional costumes and fireworks celebrating the Christian reconquest of Spain. Not to be missed!</p><div class="todo-dist">📍 Moraira, June–July</div></div></div>
+      <div class="todo-card">
+        <div class="todo-card-header"><div class="todo-card-tag">Every Friday</div><h3>Moraira Friday Market</h3></div>
+        <div class="todo-card-body"><p>Every Friday morning the centre of Moraira transforms into a colourful local market with fresh produce, olives, cheeses, local wines, leather bags, clothing and handmade ceramics.</p><div class="todo-dist">📍 Moraira centre, 5 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/wineries-lliber.png" alt="Wineries in Llíber valley" />
+        <div class="todo-card-header"><div class="todo-card-tag">Wine & almonds</div><h3>Jalón/Xaló Valley & Wineries</h3></div>
+        <div class="todo-card-body"><p>The Jalón valley is famous for its muscatel wine and almond orchards. Visit the Sunday market and the co-operative winery for local wines at unbeatable prices. A lovely half-day excursion.</p><div class="todo-dist">📍 ~20 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <div class="todo-card-header"><div class="todo-card-tag">June / July</div><h3>Moros y Cristianos Festival</h3></div>
+        <div class="todo-card-body"><p>Held each June/July in Moraira, this spectacular fiesta features colourful parades, traditional costumes and fireworks celebrating the Christian reconquest of Spain. Not to be missed!</p><div class="todo-dist">📍 Moraira</div></div>
+      </div>
     </div>
 
     <!-- DAY TRIPS -->
     <div class="todo-panel" id="tab-daytrips">
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">10 min</div><h3>Calpe Old Town</h3></div><div class="todo-card-body"><p>The charming old town of Calpe sits below the Peñón de Ifach and has whitewashed streets, a fish market (Tue & Fri), tapas bars and a beautiful Gothic church.</p><div class="todo-dist">📍 ~10 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">White village</div><h3>Altea</h3></div><div class="todo-card-body"><p>One of the most beautiful villages on the Costa Blanca — a labyrinth of whitewashed streets, blue-domed church, art galleries and excellent fish restaurants on the seafront promenade.</p><div class="todo-dist">📍 ~25 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tool-tag">Mountain castle</div><h3>Guadalest</h3></div><div class="todo-card-body"><p>A spectacular medieval castle village perched on top of a mountain, accessible through a tunnel carved in the rock. The reservoir views are stunning. A must-see day trip.</p><div class="todo-dist">📍 ~45 min drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">City break</div><h3>Alicante</h3></div><div class="todo-card-body"><p>A vibrant city with a stunning castle, beautiful esplanade, excellent tapas scene and the MARQ archaeology museum. Great for a day of culture, shopping and seafood.</p><div class="todo-dist">📍 ~70 km, ~1 hr drive</div></div></div>
-      <div class="todo-card"><div class="todo-card-header"><div class="todo-card-tag">City of arts</div><h3>Valencia</h3></div><div class="todo-card-body"><p>The home of paella — visit the stunning City of Arts & Sciences, the Central Market and the historic old town. A full but rewarding day trip from the villa.</p><div class="todo-dist">📍 ~100 km, ~1 hr drive</div></div></div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/Surroundings-valley-Benissa.jpg" alt="Valley around Benissa" />
+        <div class="todo-card-header"><div class="todo-card-tag">10 min</div><h3>Calpe Old Town</h3></div>
+        <div class="todo-card-body"><p>The charming old town of Calpe sits below the Peñón de Ifach with whitewashed streets, a fish market (Tue & Fri), tapas bars and a beautiful Gothic church.</p><div class="todo-dist">📍 ~10 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <div class="todo-card-header"><div class="todo-card-tag">White village</div><h3>Altea</h3></div>
+        <div class="todo-card-body"><p>One of the most beautiful villages on the Costa Blanca — a labyrinth of whitewashed streets, blue-domed church, art galleries and excellent fish restaurants on the seafront promenade.</p><div class="todo-dist">📍 ~25 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <img class="todo-card-img" src="images/surroundings/guadalest-lake-and-village.png" alt="Guadalest lake and village" />
+        <div class="todo-card-header"><div class="todo-card-tag">Mountain castle</div><h3>Guadalest</h3></div>
+        <div class="todo-card-body"><p>A spectacular medieval castle village perched on top of a mountain, accessible through a tunnel carved in the rock. The reservoir views are stunning. A must-see day trip.</p><div class="todo-dist">📍 ~45 min drive</div></div>
+      </div>
+      <div class="todo-card">
+        <div class="todo-card-header"><div class="todo-card-tag">City break</div><h3>Alicante & Valencia</h3></div>
+        <div class="todo-card-body"><p>Alicante offers a stunning castle, beautiful esplanade and a great tapas scene (~70 km). Valencia — home of paella — has the unmissable City of Arts & Sciences and a vibrant old town (~100 km).</p><div class="todo-dist">📍 1–1.5 hr drive</div></div>
+      </div>
     </div>
 
     <!-- RESTAURANTS -->
     <div class="todo-panel" id="tab-restaurants">
+      <div class="resto-card">
+        <img class="todo-card-img" src="images/surroundings/chiringhito-olala-benissa-cala-baladrar.jpeg" alt="Chiringuito Olalá Baladrar" style="border-radius:var(--radius) var(--radius) 0 0;margin:-1.4rem -1.4rem 1rem -1.4rem;width:calc(100% + 2.8rem);" />
+        <div class="resto-type">Beach Bar · Cala Baladrar</div><h3>Chiringuito Olalá</h3>
+        <p>A lovely beach bar right at Cala Baladrar — your nearest beach from the villa. Great for a relaxed lunch or evening drink with your feet in the sand, virtually on your doorstep.</p>
+        <div class="resto-price">💶 Low–Mid · Cala Baladrar</div>
+      </div>
       <div class="resto-card"><div class="resto-type">Fine Dining · El Portet</div><h3>Le Dauphin</h3><p>Probably the best-situated restaurant on the Costa Blanca, overlooking El Portet beach. Swiss owners with a Michelin kitchen recommendation. Dine on the summer terrace with sea views and a gentle breeze.</p><div class="resto-price">💶 High · Tel: +34 96 649 0432</div></div>
-      <div class="resto-card"><div class="resto-type">Paella & Seafood · Beachfront</div><h3>El Chamizo</h3><p>Right on the beach just outside Moraira — romantic for dinner or a relaxed lunch while the kids play on the sand. Known for outstanding paella (pre-order at busy times) and a great-value house wine.</p><div class="resto-price">💶 Mid · Tel: +34 965 743 090</div></div>
+      <div class="resto-card"><div class="resto-type">Paella & Seafood · Beachfront</div><h3>El Chamizo</h3><p>Right on the beach just outside Moraira — romantic for dinner or a relaxed lunch while the kids play on the sand. Known for outstanding paella (pre-order at busy times).</p><div class="resto-price">💶 Mid · Tel: +34 965 743 090</div></div>
       <div class="resto-card"><div class="resto-type">Creative Tapas · Moraira</div><h3>Tasca 42</h3><p>Innovative tapas made with fresh local ingredients, with vegetarian, vegan and gluten-free options. A favourite with locals and visitors alike on the coastal road toward Calpe.</p><div class="resto-price">💶 Mid · Tel: +34 722 310 923</div></div>
       <div class="resto-card"><div class="resto-type">Authentic Spanish · Moraira centre</div><h3>El Rincón de Moraira</h3><p>Family-run for over 30 years by Ramón and his two chef children. Extensive menu, everything fresh daily and a delicious traditional paella. A true local institution.</p><div class="resto-price">💶 Mid · Tel: +34 966 490 360</div></div>
-      <div class="resto-card"><div class="resto-type">Fusion · On the Golf Course</div><h3>Kosta d'Oro</h3><p>Chic restaurant right on the Golf Ifach course — perfect after a round. Mediterranean-Italian-Japanese fusion kitchen with a wine cellar of over 2,000 bottles. Gorgeous terrace in sun or shade.</p><div class="resto-price">💶 Mid-High · Tel: +34 965 212 713</div></div>
-      <div class="resto-card"><div class="resto-type">Seafood & Sunsets · Seafront</div><h3>Amantes de Moraira</h3><p>First-line to the sea with unbeatable views. The best fresh fish from the Moraira fishing boats, served on a sun-drenched terrace. Especially magical at sunset with cocktails.</p><div class="resto-price">💶 High · Ctra. Moraira–Calpe 119</div></div>
-      <div class="resto-card"><div class="resto-type">Artisan Tapas · Moraira</div><h3>Billy's by Miquel Ruiz</h3><p>A local gem that's become a firm favourite with food lovers. Super creative, beautifully presented tapas that are as much art as food. Highly recommended — book ahead.</p><div class="resto-price">💶 Mid · Moraira centre</div></div>
-      <div class="resto-card"><div class="resto-type">French Country · Jalón Valley</div><h3>Verd i Vent</h3><p>Extraordinary value in a rustic, atmospheric setting in the Jalón valley. Four-course set meal with local wine from the barrel for around €15. A 20-minute drive that is very much worth it. Book essential.</p><div class="resto-price">💶 Low · Tel: +34 965 973 413</div></div>
+      <div class="resto-card"><div class="resto-type">Fusion · On the Golf Course</div><h3>Kosta d'Oro</h3><p>Chic restaurant right on Golf Ifach — perfect after a round. Mediterranean-Italian-Japanese fusion kitchen with a wine cellar of over 2,000 bottles.</p><div class="resto-price">💶 Mid-High · Tel: +34 965 212 713</div></div>
+      <div class="resto-card"><div class="resto-type">French Country · Jalón Valley</div><h3>Verd i Vent</h3><p>Extraordinary value in a rustic, atmospheric setting in the Jalón valley. Four-course set meal with local wine from the barrel for around €15. Book essential.</p><div class="resto-price">💶 Low · Tel: +34 965 973 413</div></div>
     </div>
 
   </div>
@@ -533,58 +602,79 @@
 </footer>
 
 <script>
-  // Gallery images for lightbox
+  // ── GALLERY LIGHTBOX ──
   const photos = [
-    { src: 'villa-azura-aerial.jpg', caption: 'Villa Azura – aerial view' },
-    { src: 'villa-azura-pool-terrace.jpg', caption: 'Pool and terrace' },
-    { src: 'https://images.micazu.nl/_images/house/47648/images/villa_azura__zwembad___dichtbij_zee-5-2433.jpg?width=1200&height=800&mode=crop&scale=both', caption: 'Pool with palm trees' },
-    { src: 'https://images.micazu.nl/_images/house/47648/images/Villa_met_zwembad_nabij_zee___Golf-8ced4785.jpg?crop=0,0,1747,1310&srotate=0&width=1200&height=800&mode=crop&scale=both', caption: 'Covered terrace and outdoor bar' },
-    { src: 'https://images.micazu.nl/_images/house/47648/images/villa_azura-20-1306.jpg?width=1200&height=800&mode=crop&scale=both', caption: 'Living area' },
-    { src: 'https://images.micazu.nl/_images/house/47648/images/Villa_met_zwembad_nabij_zee___Golf-0f1e4b0d.jpg?crop=0,0,1509,1132&srotate=0&width=1200&height=800&mode=crop&scale=both', caption: 'Villa exterior' },
-    { src: 'https://images.micazu.nl/_images/house/47648/images/villa_azura-1-1306.jpeg?width=1200&height=800&mode=crop&scale=both', caption: 'Garden and pool' }
+    { src: 'images/house/villa-azura-aerial.jpg', cap: 'Aerial view' },
+    { src: 'images/house/overview.jpg', cap: 'Villa overview' },
+    { src: 'images/house/va-pool-view.jpg', cap: 'Pool view' },
+    { src: 'images/house/relax-pool.jpg', cap: 'Relaxing by the pool' },
+    { src: 'images/house/pool-by-night-Villa-Azura.jpg', cap: 'Pool by night' },
+    { src: 'images/house/twighlight.jpg', cap: 'Villa at twilight' },
+    { src: 'images/house/day.jpg', cap: 'A perfect day' },
+    { src: 'images/house/va-front-view.jpg', cap: 'Front view of the villa' },
+    { src: 'images/house/va-entrance.jpg', cap: 'Villa entrance' },
+    { src: 'images/house/Carrer-Morena_22_039.jpg', cap: 'Carrer la Morena' },
+    { src: 'images/house/va-naya.jpg', cap: 'The naya (covered terrace)' },
+    { src: 'images/house/naya-bbq-area.jpg', cap: 'Naya & BBQ area' },
+    { src: 'images/house/luncht-at-naya.jpg', cap: 'Lunch at the naya' },
+    { src: 'images/house/shady-terras.jpg', cap: 'Shaded terrace' },
+    { src: 'images/house/opennaya-sunrise.jpg', cap: 'Naya at sunrise' },
+    { src: 'images/house/dining-with-a-view.jpg', cap: 'Dining with a view' },
+    { src: 'images/house/Villa-azura-sunset.jpeg', cap: 'Sunset at Villa Azura' },
+    { src: 'images/house/another-beautiful-sunset-at-Villa-Azura-Moraira.jpg', cap: 'Another beautiful sunset' },
+    { src: 'images/house/sundowner.JPEG', cap: 'Sundowner on the terrace' },
+    { src: 'images/house/sunset.jpg', cap: 'Sunset from the garden' },
+    { src: 'images/house/living-diningroom.jpeg', cap: 'Living & dining room' },
+    { src: 'images/house/Poolroom.jpg', cap: 'Double bedroom' },
+    { src: 'images/house/Master-bedroom-doors-to-pool.jpg', cap: 'Master bedroom with pool access' },
+    { src: 'images/house/Third-bedroom-two-single-beds.jpg', cap: 'Twin bedroom' }
   ];
-
-  let current = 0;
+  let cur = 0;
 
   function openLightbox(idx) {
-    current = idx;
-    updateLightbox();
+    cur = idx; updateLB();
     document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
-
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('active');
     document.body.style.overflow = '';
   }
-
-  function closeLightboxOnBg(e) {
-    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  function closeLightboxOnBg(e) { if (e.target.id === 'lightbox') closeLightbox(); }
+  function updateLB() {
+    document.getElementById('lb-img').src = photos[cur].src;
+    document.getElementById('lb-caption').textContent = photos[cur].cap;
+    document.getElementById('lb-counter').textContent = (cur+1) + ' / ' + photos.length;
   }
-
-  function updateLightbox() {
-    document.getElementById('lb-img').src = photos[current].src;
-    document.getElementById('lb-img').alt = photos[current].caption;
-    document.getElementById('lb-caption').textContent = photos[current].caption;
-    document.getElementById('lb-counter').textContent = (current + 1) + ' / ' + photos.length;
-  }
-
-  function nextPhoto() { current = (current + 1) % photos.length; updateLightbox(); }
-  function prevPhoto() { current = (current - 1 + photos.length) % photos.length; updateLightbox(); }
-
+  function nextPhoto() { cur = (cur+1) % photos.length; updateLB(); }
+  function prevPhoto() { cur = (cur-1+photos.length) % photos.length; updateLB(); }
   document.addEventListener('keydown', e => {
-    const lb = document.getElementById('lightbox');
-    if (!lb.classList.contains('active')) return;
-    if (e.key === 'ArrowRight') nextPhoto();
-    if (e.key === 'ArrowLeft') prevPhoto();
-    if (e.key === 'Escape') closeLightbox();
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key==='ArrowRight') nextPhoto();
+    if (e.key==='ArrowLeft') prevPhoto();
+    if (e.key==='Escape') closeLightbox();
   });
 
-  // Things To Do tabs
-  function showTab(tab) {
+  // ── GALLERY FILTER ──
+  function filterGallery(cat, btn) {
+    document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const items = document.querySelectorAll('.photo-item');
+    let visible = 0;
+    items.forEach(item => {
+      const show = cat === 'all' || item.dataset.cat === cat;
+      item.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+    document.getElementById('galleryCount').textContent =
+      cat === 'all' ? 'Showing all 24 photos' : `Showing ${visible} of 24 photos`;
+  }
+
+  // ── THINGS TO DO TABS ──
+  function showTab(tab, btn) {
     document.querySelectorAll('.todo-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.todo-panel, .resto-panel').forEach(p => p.classList.remove('active'));
-    event.target.classList.add('active');
+    btn.classList.add('active');
+    document.querySelectorAll('.todo-panel').forEach(p => p.classList.remove('active'));
     const panel = document.getElementById('tab-' + tab);
     if (panel) panel.classList.add('active');
   }
