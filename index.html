@@ -205,6 +205,7 @@
     <li><a href="#features">Amenities</a></li>
     <li><a href="#gallery-full">Gallery</a></li>
     <li><a href="#pricing">Prices</a></li>
+    <li><a href="#availability">Availability</a></li>
     <li><a href="#location">Location</a></li>
     <li><a href="#todo">Things To Do</a></li>
     <li><a href="#reviews">Reviews</a></li>
@@ -247,7 +248,7 @@
   <div class="container">
     <div class="section-label">Gallery</div>
     <h2 class="section-title">See Villa Azura for Yourself</h2>
-    <p class="section-subtitle">All 28 photos of the villa — click any image to view full-screen and browse with the arrow keys.</p>
+    <p class="section-subtitle">All 24 photos of the villa — click any image to view full-screen and browse with the arrow keys.</p>
 
     <div class="gallery-filters">
       <button class="gf-btn active" onclick="filterGallery('all',this)">All (28)</button>
@@ -293,7 +294,7 @@
       <div class="photo-item" data-cat="kitchen" data-idx="26" onclick="openLightbox(26)"><img src="images/house/20250305_145707.jpg" alt="Kitchen" loading="lazy"/><div class="photo-overlay"><span>Kitchen</span></div></div>
       <div class="photo-item" data-cat="kitchen" data-idx="27" onclick="openLightbox(27)"><img src="images/house/20250305_150025.jpg" alt="Kitchen" loading="lazy"/><div class="photo-overlay"><span>Kitchen</span></div></div>
     </div>
-    <div class="gallery-count" id="galleryCount">Showing 28 of 28 photos</div>
+    <div class="gallery-count" id="galleryCount">Showing 24 of 24 photos</div>
   </div>
 </section>
 
@@ -343,7 +344,7 @@
       <div class="feature-card"><div class="feature-icon">👨‍🍳</div><h3>Modern Kitchen (2025)</h3><p>Induction hob, combination oven/microwave, dishwasher, washing machine, fridge-freezer and a coffee station with L'Or cups and a milk frother.</p></div>
       <div class="feature-card"><div class="feature-icon">❄️</div><h3>Air-Con in Every Room</h3><p>All rooms have hot/cold air-conditioning. Stay cool in summer and comfortably warm during winter stays. Ideal year-round.</p></div>
       <div class="feature-card"><div class="feature-icon">📡</div><h3>WiFi, TV & Streaming</h3><p>Free high-speed fibre internet, Netflix, satellite TV with Dutch and European channels, DVD player and stereo.</p></div>
-      <div class="feature-card"><div class="feature-icon">🛏️</div><h3>3 Comfortable Bedrooms</h3><p>Bedroom 1: double 160×200 cm. Bedroom 2: double 160×200 cm (en-suite with bath). Bedroom 3: two singles 90×200 cm. All with built-in wardrobes.</p></div>
+      <div class="feature-card"><div class="feature-icon">🛏️</div><h3>3 Comfortable Bedrooms</h3><p>Bedroom 1: double 160×200 cm. Bedroom 2: double 150×200 cm (en-suite with bath). Bedroom 3: two singles 90×200 cm. All with built-in wardrobes.</p></div>
       <div class="feature-card"><div class="feature-icon">🔐</div><h3>Privacy & Security</h3><p>Fully fenced property with a gated entrance and security camera. Completely detached — no shared walls with neighbours.</p></div>
       <div class="feature-card"><div class="feature-icon">🏖️</div><h3>Beach Kit & Extras</h3><p>Cool box, beach umbrella, books, board games, DVDs, a paella pan for the BBQ and a warm water bottle for winter evenings.</p></div>
       <div class="feature-card"><div class="feature-icon">🅿️</div><h3>Private Driveway</h3><p>Private driveway with ample parking space. Pool and living areas all on one level.</p></div>
@@ -375,6 +376,35 @@
     </div>
     <div class="price-note" style="margin-bottom:1rem;background:#f5f0e8;border-left:4px solid var(--terracotta);border-radius:0 var(--radius) var(--radius) 0;color:var(--dark);">🏷️ <strong>Special rates</strong> are available for long-term rental or stays in off-season months. Please don't hesitate to <a href="#contact" style="color:var(--terracotta);font-weight:600;">contact us</a> for further information.</div>
     <div class="price-note"><strong>Cancellation:</strong> Free up to 4 weeks before arrival. &nbsp;|&nbsp; <strong>Min. age:</strong> 21+. &nbsp;|&nbsp; <strong>Rules:</strong> No smoking, no pets, no parties. &nbsp;|&nbsp; <strong>Check-in:</strong> 15:00 &nbsp;|&nbsp; <strong>Check-out:</strong> 10:00 &nbsp;|&nbsp; Licence: CV-VUT0454213-A</div>
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section id="availability" class="features-bg">
+  <div class="container">
+    <div class="section-label">Availability</div>
+    <h2 class="section-title">Check Available Dates</h2>
+    <p class="section-subtitle">The calendar below shows current bookings and availability. Updated in real time. See a period that works for you? Send us an enquiry and we'll confirm within 24 hours.</p>
+    <div style="margin-top:2rem;background:white;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:1.5rem;">
+      <div style="position:relative;padding-bottom:65%;height:0;overflow:hidden;">
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=4hmijvvm3ap0uevur159o7t5paidl4g1%40import.calendar.google.com&ctz=Europe%2FAmsterdam&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&wkst=2&bgcolor=%23FFFFFF"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+          scrolling="no"
+          loading="lazy"
+          title="Villa Azura availability calendar">
+        </iframe>
+      </div>
+    </div>
+    <div style="margin-top:1.2rem;display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--mid);">
+        <span style="width:14px;height:14px;background:#c1694f;border-radius:3px;display:inline-block;"></span> Booked
+      </div>
+      <div style="display:flex;align-items:center;gap:.5rem;font-size:.88rem;color:var(--mid);">
+        <span style="width:14px;height:14px;background:#e8f0f8;border-radius:3px;display:inline-block;"></span> Available
+      </div>
+      <a href="#contact" style="margin-left:auto;background:var(--terracotta);color:white;padding:.6rem 1.4rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;">Enquire about a date →</a>
+    </div>
   </div>
 </section>
 
@@ -434,13 +464,13 @@
       </div>
       <div class="todo-card">
         <img class="todo-card-img" src="images/surroundings/20250622_160901.jpg" alt="Cala Advocat" />
-        <div class="todo-card-header"><div class="todo-card-tag">Snorkelling spot</div><h3>Cala Llobella & Cala Advocat</h3></div>
+        <div class="todo-card-header"><div class="todo-card-tag">Snorkelling spot</div><h3>Cala l'Andrago & Cala Advocat</h3></div>
         <div class="todo-card-body"><p>Beautiful rocky coves just down from the villa, popular with snorkellers and divers for rich marine life and turquoise water. Accessible by car with limited parking.</p><div class="todo-dist">📍 ~2 km</div></div>
       </div>
       <div class="todo-card">
         <img class="todo-card-img" src="images/surroundings/Playa-de-el-Portet.jpg" alt="El Portet beach" />
-        <div class="todo-card-header"><div class="todo-card-tag">Lively resort</div><h3>Moraira & El Portet Beach</h3></div>
-        <div class="todo-card-body"><p>A long sandy beach dotted with nice restaurants right in front of the azure blue bay. Enjoy the food and cool down in the water.</p><div class="todo-dist">📍 ~10 min drive</div></div>
+        <div class="todo-card-header"><div class="todo-card-tag">Lively resort</div><h3>Calpe & La Fossa Beach</h3></div>
+        <div class="todo-card-body"><p>A long sandy beach in the shadow of the iconic Peñón de Ifach rock. Calpe's old town and harbour are worth exploring, with a fresh fish market on Tuesday and Friday mornings.</p><div class="todo-dist">📍 ~10 min drive</div></div>
       </div>
     </div>
 
