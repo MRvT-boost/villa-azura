@@ -406,15 +406,11 @@
     <p class="section-subtitle">The calendar below shows current bookings and availability. Updated in real time. See a period that works for you? Send us an enquiry and we'll confirm within 24 hours.</p>
     <div style="margin-top:2rem;background:white;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);padding:1.5rem;">
       <div style="position:relative;padding-bottom:65%;height:0;overflow:hidden;">
-                  <div id="calendar-placeholder" style="position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f5f0e8;border-radius:8px;flex-direction:column;gap:1rem;">
-            <p style="color:var(--mid);font-size:.95rem;text-align:center;max-width:320px;line-height:1.7;">Please accept cookies to view the availability calendar.</p>
-            <button onclick="acceptCookies(); return false;" style="background:var(--terracotta);color:white;border:none;padding:.7rem 1.6rem;border-radius:8px;font-weight:600;cursor:pointer;font-family:inherit;font-size:.95rem;">Accept cookies</button>
-          </div>
-          <iframe id="calendar-iframe"
-          src=""
-          data-src="https://calendar.google.com/calendar/embed?src=4hmijvvm3ap0uevur159o7t5paidl4g1%40import.calendar.google.com&ctz=Europe%2FAmsterdam&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&wkst=2&bgcolor=%23FFFFFF&hl=en"
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;display:none;"
+                  <iframe id="calendar-iframe"
+          src="https://calendar.google.com/calendar/embed?src=4hmijvvm3ap0uevur159o7t5paidl4g1%40import.calendar.google.com&ctz=Europe%2FAmsterdam&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&wkst=2&bgcolor=%23FFFFFF&hl=en"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
           scrolling="no"
+          loading="lazy"
           title="Villa Azura availability calendar">
         </iframe>
       </div>
@@ -673,27 +669,15 @@
   function acceptCookies() {
     localStorage.setItem('cookieConsent', 'accepted');
     document.getElementById('cookie-banner').style.display = 'none';
-    loadCalendar();
   }
   function declineCookies() {
     localStorage.setItem('cookieConsent', 'declined');
     document.getElementById('cookie-banner').style.display = 'none';
   }
-  function loadCalendar() {
-    const iframe = document.getElementById('calendar-iframe');
-    const placeholder = document.getElementById('calendar-placeholder');
-    if (iframe) {
-      iframe.src = iframe.dataset.src;
-      iframe.style.display = 'block';
-    }
-    if (placeholder) placeholder.style.display = 'none';
-  }
   (function() {
     const consent = localStorage.getItem('cookieConsent');
     if (!consent) {
       document.getElementById('cookie-banner').style.display = 'flex';
-    } else if (consent === 'accepted') {
-      loadCalendar();
     }
   })();
 
